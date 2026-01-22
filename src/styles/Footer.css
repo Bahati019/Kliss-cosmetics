@@ -1,0 +1,85 @@
+.footer {
+  margin-top: 120px;
+  padding: 70px 20px 35px;
+  text-align: center;
+  border-top: 1px solid rgba(244, 196, 48, 0.3);
+}
+
+/* BRAND */
+.footer-logo {
+  font-size: 2rem;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  color: #f4c430;
+}
+
+.footer-tagline {
+  opacity: 0.75;
+  margin-bottom: 35px;
+}
+
+/* LINKS */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  margin-bottom: 35px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  left: 0;
+  bottom: -4px;
+  background: #f4c430;
+  transition: width 0.3s;
+}
+
+.footer-links a:hover {
+  color: #f4c430;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* COPYRIGHT */
+.footer-copy {
+  font-size: 0.85rem;
+  opacity: 0.55;
+}
+
+/* FADE-IN ANIMATION */
+.fade-in {
+  animation: fadeUp 1s ease-out both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 18px;
+  }
+}

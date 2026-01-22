@@ -1,0 +1,26 @@
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #f4c430;
+  color: black;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-top:hover {
+  background: white;
+}

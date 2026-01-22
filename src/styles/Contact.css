@@ -1,0 +1,67 @@
+.contact {
+  padding: 120px 10%;
+  text-align: center;
+  background: #000;
+  color: white;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  max-width: 500px;
+  margin: auto;
+  opacity: 0.9;
+}
+
+/* SOCIAL GRID */
+.contact-socials {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+}
+
+.social-card {
+  background: #111;
+  border-radius: 18px;
+  padding: 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 2rem;
+  color: white;
+  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none;
+}
+.social-card:hover span {
+  letter-spacing: 1px;
+}
+.social-icon {
+  font-size: 2.2rem;
+  color: #f4c430;
+  transition: 0.3s;
+}
+
+.social-card:hover .social-icon {
+  color: black;
+}
+
+
+
+.social-card span {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* HOVER EFFECT */
+.social-card:hover {
+  transform: translateY(-8px);
+  background: #f4c430;
+  color: black;
+}
