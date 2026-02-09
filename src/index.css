@@ -1,5 +1,45 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white font-body overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .fade-delay-1 {
+    animation-delay: 0.1s;
+  }
+
+  .fade-delay-2 {
+    animation-delay: 0.2s;
+  }
+
+  .fade-delay-3 {
+    animation-delay: 0.3s;
+  }
+
+  .fade-delay-4 {
+    animation-delay: 0.4s;
+  }
+
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg;
+  }
 }
