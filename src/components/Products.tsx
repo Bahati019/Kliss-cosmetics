@@ -1,61 +1,131 @@
 // import "../styles/Products.css";
-import { WHATSAPP_LINK } from "../utils/constants";
+import { useCart } from "../context/CartContext";
+import { motion } from "framer-motion";
 import posterImage from "../Poster.png";
 
 const Products = () => {
+  const { addToCart } = useCart();
+
   return (
-    <section className="min-h-screen px-[8%] py-32 bg-black text-white text-center" id="products">
-      <h1 className="text-gold font-heading text-[clamp(2.5rem,5vw,4rem)] mb-4">Our Products</h1>
-      <p className="max-w-[600px] mx-auto mb-16 text-lg text-gray leading-relaxed opacity-90">
-        Discover KLISS Hair Food products designed for strong, shiny, and
-        healthy hair.
-      </p>
+    <section className="min-h-screen px-[8%] py-32 bg-black text-white text-center overflow-hidden" id="products">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+      >
+        <h1 className="text-gold font-heading text-[clamp(2.5rem,5vw,4rem)] mb-4">Our Products</h1>
+        <p className="max-w-[600px] mx-auto mb-16 text-lg text-gray leading-relaxed opacity-90">
+          Discover KLISS Hair Food products designed for strong, shiny, and
+          healthy hair.
+        </p>
+      </motion.div>
 
       <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-10 justify-items-center">
-        <div className="bg-[#111] p-8 rounded-2xl border border-white/10 w-full max-w-[350px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-gold/30 text-left fade-up fade-delay-1 group">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="bg-[#111] p-8 rounded-2xl border border-white/10 w-full max-w-[350px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-gold/30 text-left group"
+        >
           <div className="w-full h-[300px] bg-[#1a1a1a] rounded-xl overflow-hidden mb-6 flex items-center justify-center relative">
             <img src={posterImage} alt="KLISS Hair Food 50g" className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
           </div>
           <h3 className="text-xl font-heading mb-2 text-white">KLISS Hair Food – 50g</h3>
-          <p className="text-gray text-base mb-6 h-12">Nourishes and strengthens hair.</p>
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            className="block text-center w-full py-3 rounded-lg border border-gold text-gold font-bold uppercase tracking-wider transition-all duration-300 hover:bg-gold hover:text-black"
+          <p className="text-gray text-base mb-2 h-6">Nourishes and strengthens hair.</p>
+          <p className="text-gold font-bold text-lg mb-4">KES 300</p>
+          <button
+            onClick={() => addToCart({ id: '50g', name: 'KLISS Hair Food – 50g', price: 300, quantity: 1, image: posterImage })}
+            className="block text-center w-full py-3 rounded-lg border border-gold text-gold font-bold uppercase tracking-wider transition-all duration-300 hover:bg-gold hover:text-black cursor-pointer"
           >
-            Order Now
-          </a>
-        </div>
+            Add to Cart
+          </button>
+        </motion.div>
 
-        <div className="bg-[#111] p-8 rounded-2xl border border-white/10 w-full max-w-[350px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-gold/30 text-left fade-up fade-delay-2 group">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="bg-[#111] p-8 rounded-2xl border border-white/10 w-full max-w-[350px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-gold/30 text-left group"
+        >
           <div className="w-full h-[300px] bg-[#1a1a1a] rounded-xl overflow-hidden mb-6 flex items-center justify-center relative">
             <img src={posterImage} alt="KLISS Hair Food 100g" className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
           </div>
           <h3 className="text-xl font-heading mb-2 text-white">KLISS Hair Food – 100g</h3>
-          <p className="text-gray text-base mb-6 h-12">Perfect for regular daily use.</p>
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            className="block text-center w-full py-3 rounded-lg border border-gold text-gold font-bold uppercase tracking-wider transition-all duration-300 hover:bg-gold hover:text-black"
+          <p className="text-gray text-base mb-2 h-6">Perfect for regular daily use.</p>
+          <p className="text-gold font-bold text-lg mb-4">KES 500</p>
+          <button
+            onClick={() => addToCart({ id: '100g', name: 'KLISS Hair Food – 100g', price: 500, quantity: 1, image: posterImage })}
+            className="block text-center w-full py-3 rounded-lg border border-gold text-gold font-bold uppercase tracking-wider transition-all duration-300 hover:bg-gold hover:text-black cursor-pointer"
           >
-            Order Now
-          </a>
-        </div>
+            Add to Cart
+          </button>
+        </motion.div>
 
-        <div className="bg-[#111] p-8 rounded-2xl border border-white/10 w-full max-w-[350px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-gold/30 text-left fade-up fade-delay-3 group">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="bg-[#111] p-8 rounded-2xl border border-white/10 w-full max-w-[350px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-gold/30 text-left group"
+        >
           <div className="w-full h-[300px] bg-[#1a1a1a] rounded-xl overflow-hidden mb-6 flex items-center justify-center relative">
             <img src={posterImage} alt="KLISS Hair Food 250g" className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
           </div>
           <h3 className="text-xl font-heading mb-2 text-white">KLISS Hair Food – 250g</h3>
-          <p className="text-gray text-base mb-6 h-12">Ideal for long-lasting hair care.</p>
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            className="block text-center w-full py-3 rounded-lg border border-gold text-gold font-bold uppercase tracking-wider transition-all duration-300 hover:bg-gold hover:text-black"
+          <p className="text-gray text-base mb-2 h-6">Ideal for long-lasting hair care.</p>
+          <p className="text-gold font-bold text-lg mb-4">KES 1000</p>
+          <button
+            onClick={() => addToCart({ id: '250g', name: 'KLISS Hair Food – 250g', price: 1000, quantity: 1, image: posterImage })}
+            className="block text-center w-full py-3 rounded-lg border border-gold text-gold font-bold uppercase tracking-wider transition-all duration-300 hover:bg-gold hover:text-black cursor-pointer"
           >
-            Order Now
-          </a>
-        </div>
+            Add to Cart
+          </button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="bg-[#111] p-8 rounded-2xl border border-white/10 w-full max-w-[350px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-gold/30 text-left group"
+        >
+          <div className="w-full h-[300px] bg-[#1a1a1a] rounded-xl overflow-hidden mb-6 flex items-center justify-center relative">
+            <img src={posterImage} alt="KLISS Shampoo" className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <h3 className="text-xl font-heading mb-2 text-white">KLISS Shampoo</h3>
+          <p className="text-gray text-base mb-2 h-6">Cleanses and revitalizes your hair.</p>
+          <p className="text-gold font-bold text-lg mb-4">KES 800</p>
+          <button
+            onClick={() => addToCart({ id: 'shampoo', name: 'KLISS Shampoo', price: 800, quantity: 1, image: posterImage })}
+            className="block text-center w-full py-3 rounded-lg border border-gold text-gold font-bold uppercase tracking-wider transition-all duration-300 hover:bg-gold hover:text-black cursor-pointer"
+          >
+            Add to Cart
+          </button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="bg-[#111] p-8 rounded-2xl border border-white/10 w-full max-w-[350px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-gold/30 text-left group"
+        >
+          <div className="w-full h-[300px] bg-[#1a1a1a] rounded-xl overflow-hidden mb-6 flex items-center justify-center relative">
+            <img src={posterImage} alt="KLISS Acetone" className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <h3 className="text-xl font-heading mb-2 text-white">KLISS Acetone</h3>
+          <p className="text-gray text-base mb-2 h-6">Professional grade nail polish remover.</p>
+          <p className="text-gold font-bold text-lg mb-4">KES 200</p>
+          <button
+            onClick={() => addToCart({ id: 'acetone', name: 'KLISS Acetone', price: 200, quantity: 1, image: posterImage })}
+            className="block text-center w-full py-3 rounded-lg border border-gold text-gold font-bold uppercase tracking-wider transition-all duration-300 hover:bg-gold hover:text-black cursor-pointer"
+          >
+            Add to Cart
+          </button>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,9 +1,15 @@
-// import "../styles/About.css";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section className="bg-white min-h-[80vh] px-[10%] py-28 text-center" id="about">
-      <div className="max-w-[1000px] mx-auto fade-up">
+    <section className="bg-white min-h-[80vh] px-[10%] py-28 text-center overflow-hidden" id="about">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="max-w-[1000px] mx-auto"
+      >
         <h2 className="text-4xl font-heading mb-6 text-black">About KLISS Hair Food</h2>
 
         <p className="text-xl max-w-[700px] mx-auto opacity-80 leading-relaxed mb-16 text-gray-700">
@@ -37,7 +43,7 @@ const About = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

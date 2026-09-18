@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { WHATSAPP_LINK } from "../utils/constants";
-
+import { useCart } from "../context/CartContext";
+import { FiShoppingCart } from "react-icons/fi";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { cartCount, setIsCartOpen } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,13 +27,19 @@ const Navbar = () => {
         <Link to="/contact" className="text-white hover:text-gold-light transition-colors" onClick={() => setOpen(false)}>Contact Us</Link>
       </div>
 
-      <a
-        href={WHATSAPP_LINK}
-        target="_blank"
-        className="hidden md:inline-block bg-white text-black px-5 py-2 no-underline hover:bg-gold-light transition flex-shrink-0"
-      >
-        Order Now
-      </a>
+      <div className="hidden md:flex items-center gap-6">
+        <button 
+          onClick={() => setIsCartOpen(true)}
+          className="relative text-white hover:text-gold-light transition-colors p-2"
+        >
+          <FiShoppingCart size={24} />
+          {cartCount > 0 && (
+            <span className="absolute top-0 right-0 bg-gold text-black text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">
+              {cartCount}
+            </span>
+          )}
+        </button>
+      </div>
 
       {/* Mobile Hamburger */}
       <div className="flex flex-col gap-1 cursor-pointer md:hidden z-[1001]" onClick={() => setOpen(!open)}>
@@ -48,13 +55,21 @@ const Navbar = () => {
         <Link to="/products" className="text-2xl text-white hover:text-gold-light" onClick={() => setOpen(false)}>Our Products</Link>
         <Link to="/contact" className="text-2xl text-white hover:text-gold-light" onClick={() => setOpen(false)}>Contact Us</Link>
 
-        <a
-          href={WHATSAPP_LINK}
-          target="_blank"
-          className="text-gold-light text-xl mt-4"
+        <button 
+          onClick={() => {
+            setOpen(false);
+            setIsCartOpen(true);
+          }}
+          className="relative text-gold-light mt-4 flex items-center gap-2 p-2"
         >
-          Order via WhatsApp
-        </a>
+          <FiShoppingCart size={28} />
+          <span className="text-xl">View Cart</span>
+          {cartCount > 0 && (
+            <span className="bg-gold text-black text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full">
+              {cartCount}
+            </span>
+          )}
+        </button>
       </div>
     </nav>
   );
