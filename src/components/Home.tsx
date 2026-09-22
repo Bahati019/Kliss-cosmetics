@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import posterImage from "../Poster.png";
-import { WHATSAPP_LINK } from "../utils/constants";
 
 const CAROUSEL_SLIDES = [
   {
@@ -96,15 +95,14 @@ const Home = () => {
           >
             <ChevronLeft size={24} />
           </button>
-          
+
           <div className="flex gap-3">
             {CAROUSEL_SLIDES.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  idx === currentSlide ? "bg-gold-light scale-125" : "bg-white/50 hover:bg-white/80"
-                }`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === currentSlide ? "bg-gold-light scale-125" : "bg-white/50 hover:bg-white/80"
+                  }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
@@ -122,7 +120,7 @@ const Home = () => {
 
       {/* BENEFITS */}
       <section className="py-24 px-[10%] bg-[#fafafa] text-center overflow-hidden">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -160,7 +158,7 @@ const Home = () => {
 
       {/* HOW TO USE */}
       <section className="py-24 px-[10%] bg-black text-white overflow-hidden">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -169,7 +167,7 @@ const Home = () => {
         >
           How to Use
         </motion.h2>
-        
+
         <ol className="max-w-[600px] mx-auto list-none counter-reset-step space-y-6">
           {[
             "Apply a small amount to clean hair or scalp",
