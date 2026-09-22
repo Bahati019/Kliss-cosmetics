@@ -80,9 +80,10 @@ const Home = () => {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-block bg-gold-light text-black px-8 py-3.5 rounded-full font-semibold text-base transition-all duration-300 hover:bg-white hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] no-underline"
+                className="inline-block bg-gradient-to-r from-gold-light to-gold-dark text-black px-8 py-3.5 rounded-full font-bold text-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(212,175,55,0.4)] no-underline relative overflow-hidden group"
               >
-                Order via WhatsApp
+                <span className="relative z-10">Order via WhatsApp</span>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
               </a>
             </motion.div>
           </AnimatePresence>
@@ -146,12 +147,14 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-white p-8 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:bg-gradient-to-br hover:from-white hover:to-[#f9f9f9] group"
+              className="relative bg-white p-10 rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.06)] transition-all duration-500 border border-black/5 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(212,175,55,0.15)] hover:border-gold/30 group overflow-hidden"
             >
-              <h3 className="text-xl font-bold mb-2 group-hover:text-gold-dark transition-colors text-black">
-                {benefit.icon} {benefit.title}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gold/5 rounded-full blur-2xl -z-10 group-hover:bg-gold/15 transition-all duration-500" />
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">{benefit.icon}</div>
+              <h3 className="text-xl font-bold mb-3 group-hover:text-gold-dark transition-colors duration-300 text-black">
+                {benefit.title}
               </h3>
-              <p className="text-gray-600">{benefit.desc}</p>
+              <p className="text-gray-600 text-lg">{benefit.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -204,9 +207,10 @@ const Home = () => {
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noreferrer"
-            className="inline-block bg-black text-white px-10 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:bg-white hover:text-black hover:-translate-y-1 hover:shadow-2xl no-underline"
+            className="inline-block bg-black text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] no-underline relative overflow-hidden group border border-transparent hover:border-white/20"
           >
-            Order Now
+            <span className="relative z-10">Order Now</span>
+            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
         </motion.div>
       </section>
