@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useCart } from "../context/CartContext";
 import { FiX, FiCheckCircle } from "react-icons/fi";
-import { WHATSAPP_NUMBER } from "../utils/constants";
+import { ORDER_EMAIL } from "../utils/constants";
 
 const Checkout = () => {
   const { cart, isCheckoutOpen, setIsCheckoutOpen, cartTotal, clearCart } = useCart();
@@ -22,20 +22,19 @@ const Checkout = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Format WhatsApp Message
-    let message = `*NEW ORDER FROM WEBSITE*\n\n`;
-    message += `*Customer Details:*\nName: ${formData.name}\nPhone: ${formData.phone}\nAddress: ${formData.address}, ${formData.city}\n\n`;
-    message += `*Order Summary:*\n`;
+    // Format Email Content
+    const subject = `New Order from ${formData.name}`;
+    let body = `NEW ORDER FROM WEBSITE\n\n`;
+    body += `Customer Details:\nName: ${formData.name}\nPhone: ${formData.phone}\nAddress: ${formData.address}, ${formData.city}\n\n`;
+    body += `Order Summary:\n`;
     cart.forEach((item) => {
-      message += `- ${item.quantity}x ${item.name} @ KES ${item.price} (Sub: KES ${item.quantity * item.price})\n`;
+      body += `- ${item.quantity}x ${item.name} @ KES ${item.price} (Sub: KES ${item.quantity * item.price})\n`;
     });
-    message += `\n*Total:* KES ${cartTotal}`;
+    body += `\nTotal: KES ${cartTotal}`;
 
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-    
-    // Open WhatsApp
-    window.open(whatsappUrl, '_blank');
+    // Open Default Email App
+    const mailtoUrl = `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
     
     setOrderPlaced(true);
     clearCart();
@@ -57,7 +56,7 @@ const Checkout = () => {
             <FiCheckCircle size={64} className="text-gold" />
             <h2 className="text-3xl font-heading text-white">Order Initialized!</h2>
             <p className="text-gray text-lg max-w-md">
-              We've prepared your order details in WhatsApp. Please send the message to complete your order.
+              We've prepared your order details in an email. Please send the email to complete your order.
             </p>
             <button 
               onClick={() => {
@@ -125,7 +124,7 @@ const Checkout = () => {
                     type="submit" 
                     className="w-full py-4 bg-gold text-black font-bold uppercase tracking-wider rounded-lg transition-all duration-300 hover:bg-white"
                   >
-                    Place Order via WhatsApp
+                    Place Order via Email
                   </button>
                   <p className="text-xs text-gray text-center mt-4">
                     Payment will be collected upon delivery.

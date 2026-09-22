@@ -10,6 +10,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import { CartProvider } from "./context/CartContext";
 import CartDrawer from "./components/CartDrawer";
 import Checkout from "./components/Checkout";
+import BackgroundOrbs from "./components/BackgroundOrbs";
+import Marquee from "./components/Marquee";
+import Gallery from "./components/Gallery";
 
 function App() {
   return (
@@ -17,9 +20,15 @@ function App() {
       <BrowserRouter>
         <Navbar />
 
+        {/* Global Dynamic Backgrounds */}
+        <div className="noise-bg" />
+        <BackgroundOrbs />
+
         {/* Single-page scroll layout */}
         <Home />
+        <Marquee />
         <About />
+        <Gallery />
         <Products />
         <Testimonials />
         <Contact />

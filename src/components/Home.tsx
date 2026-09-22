@@ -77,12 +77,10 @@ const Home = () => {
                 {CAROUSEL_SLIDES[currentSlide].subtitle}
               </p>
               <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noreferrer"
+                href="#products"
                 className="inline-block bg-gradient-to-r from-gold-light to-gold-dark text-black px-8 py-3.5 rounded-full font-bold text-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(212,175,55,0.4)] no-underline relative overflow-hidden group"
               >
-                <span className="relative z-10">Order via WhatsApp</span>
+                <span className="relative z-10">Shop Now</span>
                 <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
               </a>
             </motion.div>
@@ -204,12 +202,10 @@ const Home = () => {
           <p className="text-lg mb-8">Order KLISS Hair Food today and feel the difference.</p>
 
           <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noreferrer"
+            href="#products"
             className="inline-block bg-black text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] no-underline relative overflow-hidden group border border-transparent hover:border-white/20"
           >
-            <span className="relative z-10">Order Now</span>
+            <span className="relative z-10">Shop Products</span>
             <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
         </motion.div>
